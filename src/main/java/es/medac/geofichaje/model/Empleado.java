@@ -23,7 +23,11 @@ public class Empleado {
 
     private LocalDateTime ultimoFichaje;
 
-    // Constructor
+    // Constructores
+    public Empleado(){
+        
+    }
+
     public Empleado(String nombre, String email, EstadoFichaje estado, LocalDateTime ultimoFichaje) {
         this.nombre = nombre;
         this.email = email;
