@@ -11,8 +11,6 @@ public class FichajeController {
     @Autowired
     private FichajeService fichajeService;
 
-    // Ruta para realizar un fichaje (POST porque enviamos datos)
-    // He usado GET para facilitar las pruebas, aunque en un entorno de producción real usaríamos POST por seguridad
     @GetMapping("/registrar")
     public String registrar(@RequestParam String email, 
                             @RequestParam double latitud, 
@@ -20,10 +18,9 @@ public class FichajeController {
         
         return fichajeService.registrarFichaje(email, latitud, longitud);
     }
-
-    // Ruta para ver el reporte (GET porque solo pedimos información)
+    
     @GetMapping("/reporte")
-    public String verReporte() {
-        return fichajeService.generarReporteEstado();
+    public FichajeService.ReporteResumen verReporte() {
+        return fichajeService.generarReporte();
     }
 }
